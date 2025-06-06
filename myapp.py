@@ -1,8 +1,10 @@
-import streamlit as st
-import google.generativeai as genai
+from dotenv import load_dotenv
+import os
 
-# ⚠️ Substitua pela sua chave da API do Gemini:
-genai.configure(api_key="AIzaSyDl4Q45tXf7YtsNej1f3sh2sLY2eiaHoVo")
+load_dotenv()  # Carrega as variáveis do arquivo .env
+api_key = os.getenv("GEMINI_API_KEY")
+
+genai.configure(api_key=api_key)
 
 # Use um modelo suportado
 MODEL_ID = "models/gemini-1.5-flash"
